@@ -30,7 +30,7 @@ def get_random_letter(case: Case = Case.UPPER) -> str:
     return char
 
 def is_letter(char: str):
-    return char in string.ascii_letters
+    return char.upper() != char.lower()
 
 def encrypt(text: str, translation_map: dict[str, float], min_columns: int = 4, max_columns: int = 8, case: Case = Case.RANDOM) -> list[Row]:
     rows = []
