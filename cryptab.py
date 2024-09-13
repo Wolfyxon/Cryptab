@@ -10,7 +10,7 @@ class Case(Enum):
 
 class Row:
     columns: list[str] = []
-    char: str
+    key: str
 
     def __init__(self) -> None:
         self.columns = []
