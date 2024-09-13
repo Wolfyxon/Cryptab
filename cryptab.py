@@ -36,12 +36,12 @@ def encrypt(text: str, translation_map: dict[str, float], min_columns: int = 4, 
             continue
 
         row = Row()
-        translation = random.choice(list(translation_map.keys()))
+        key = random.choice(list(translation_map.keys()))
 
         for _ in range(random.randint(min_columns, max_columns)):
             row.columns.append(get_random_letter(case))
 
-        row.columns[translation_map[translation] % len(row.columns)] = char
+        row.columns[translation_map[key] % len(row.columns)] = char
 
         rows.append(row)
 
