@@ -49,5 +49,4 @@ def encrypt(text: str, translation_map: dict[str, float], min_columns: int = 4, 
 
         rows.append(row)
 
-    
     return rows
