@@ -15,6 +15,9 @@ class Row:
     def __init__(self) -> None:
         self.columns = []
 
+    def decrypt(self, translation_table: dict[str, float]) -> str:
+        return self.columns[translation_table[self.key] % len(self.columns)]
+
 def get_random_letter(case: Case = Case.UPPER) -> str:
     char = random.choice(string.ascii_letters)
 
