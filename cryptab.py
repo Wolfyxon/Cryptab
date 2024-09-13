@@ -85,3 +85,23 @@ def make_csv(rows: list[Row], output_path: str):
 
         for row in rows:
             writer.writerow([row.key] + row.columns)
+
+def get_rows_from_csv(input_path: str) -> list[Row]:
+    rows = []
+
+    with open(input_path, "r", encoding="utf-8") as file:
+        reader = csv.reader(file)
+
+        for csv_row in reader:
+            if csv_row[0] == "key":
+                continue
+
+            row = Row()
+            row.key = csv_row[0]
+
+            for i in range(1, len(csv_row)):
+                row.columns.append(csv_row[i])
+
+            rows.append(row)
+
+    return rows
