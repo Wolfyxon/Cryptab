@@ -105,3 +105,6 @@ def get_rows_from_csv(input_path: str) -> list[Row]:
             rows.append(row)
 
     return rows
+
+def decrypt_csv(input_path: str, translation_map: dict[str, float]) -> str:
+    return decrypt(get_rows_from_csv(input_path), translation_map)
