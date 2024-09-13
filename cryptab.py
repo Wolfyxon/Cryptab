@@ -76,7 +76,6 @@ def make_csv(rows: list[Row], output_path: str):
             if max_len < cur_len:
                 max_len = cur_len
 
-        print(max_len)
         columns = ["key"]
         for i in range(max_len ):
             columns.append(str(i + 1))
