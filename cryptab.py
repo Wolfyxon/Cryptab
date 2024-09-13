@@ -50,3 +50,11 @@ def encrypt(text: str, translation_map: dict[str, float], min_columns: int = 4, 
         rows.append(row)
 
     return rows
+
+def decrypt(rows: list[Row], translation_map: dict[str, float]) -> str:
+    res = ""
+
+    for row in rows:
+        res += row.decrypt(translation_map)
+
+    return res
