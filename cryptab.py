@@ -4,7 +4,7 @@ import random
 import string
 
 class Case(Enum):
-    RANDOM = 0,
+    RANDOM = 0
     LOWER = 1
     UPPER = 2
 
