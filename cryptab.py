@@ -58,3 +58,8 @@ def decrypt(rows: list[Row], translation_map: dict[str, float]) -> str:
         res += row.decrypt(translation_map)
 
     return res
+
+def encrypt_text_file(input_path: str, translation_map: dict[str, float], min_columns: int = 4, max_columns: int = 8, case: Case = Case.RANDOM) -> list[Row]:
+    file = open(input_path, "r", encoding="utf-8")
+
+    return encrypt(file.read(), translation_map, min_columns, max_columns, case)
