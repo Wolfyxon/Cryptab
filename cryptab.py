@@ -2,6 +2,7 @@ from enum import Enum
 
 import random
 import string
+import csv
 
 class Case(Enum):
     RANDOM = 0
@@ -63,3 +64,24 @@ def encrypt_text_file(input_path: str, translation_map: dict[str, float], min_co
     file = open(input_path, "r", encoding="utf-8")
 
     return encrypt(file.read(), translation_map, min_columns, max_columns, case)
+
+def make_csv(rows: list[Row], output_path: str):
+    with open(output_path, "w", encoding="utf-8") as file:
+        writer = csv.writer(file)
+
+        max_len = 0
+        for row in rows:
+            cur_len = len(row.columns)
+
+            if max_len < cur_len:
+                max_len = cur_len
+
+        print(max_len)
+        columns = ["key"]
+        for i in range(max_len ):
+            columns.append(str(i + 1))
+
+        writer.writerow(columns)
+
+        for row in rows:
+            writer.writerow([row.key] + row.columns)
