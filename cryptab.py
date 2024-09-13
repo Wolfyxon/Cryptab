@@ -37,6 +37,7 @@ def encrypt(text: str, translation_map: dict[str, float], min_columns: int = 4, 
 
         row = Row()
         key = random.choice(list(translation_map.keys()))
+        row.key = key
 
         for _ in range(random.randint(min_columns, max_columns)):
             row.columns.append(get_random_letter(case))
